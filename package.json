@@ -1,0 +1,23 @@
+{
+  "name": "ada",
+  "version": "0.0.10",
+  "description": "Objects that combine adaio/pubsub and adaio/property",
+  "main": "index.js",
+  "scripts": {
+    "test": "highkick"
+  },
+  "dependencies": {
+    "pubsub" : "adaio/pubsub",
+    "prop": "adaio/prop"
+  },
+  "devDependencies": {
+    "chai": "*",
+    "highkick": "*"
+  },
+  "repository": {
+    "url": "git@github.com:adaio\/ada.git",
+    "type": "git"
+  },
+  "author": "Azer Koculu <azer@kodfabrik.com>",
+  "license": "BSD"
+}
