@@ -1,6 +1,6 @@
 {
   "name": "ada",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Objects that combine adaio/pubsub and adaio/property",
   "main": "index.js",
   "scripts": {

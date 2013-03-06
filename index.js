@@ -1,9 +1,12 @@
 var pubsub = require("pubsub"),
     prop   = require("prop");
 
-module.exports       = ada;
-module.exports.all   = props;
-module.exports.object = props;
+module.exports          = ada;
+module.exports.all      = props;
+module.exports.object   = props;
+module.exports.prop     = prop;
+module.exports.property = prop;
+module.exports.pubsub   = pubsub;
 
 function ada(){
   var obj = pubsub(prop.apply(null, arguments).extend(function(raw){
