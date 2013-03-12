@@ -23,6 +23,21 @@ it('defines a property with pubsub', function(done){
 
 });
 
+it('keeps property accessors', function(){
+
+  var foo = ada()
+        .getter(function(val){
+          return val + '.00$';
+        })
+        .setter(function(val){
+          return parseInt(val);
+        });
+
+  foo('256$');
+
+  expect(foo()).to.equal('256.00$');
+});
+
 describe('.all', function(){
 
   it('converts the content of given object to ada properties', function(){

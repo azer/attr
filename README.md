@@ -60,6 +60,14 @@ content.bar(265)
 
 Alias for `all`
 
+### #getter(function)
+
+Sets the `getter`
+
+### #setter(function)
+
+Sets the `setter`
+
 ### #subscribe(callback)
 
 Subscribes the given function to changes.
