@@ -1,4 +1,4 @@
-Objects that combine [ada-pubsub](http://github.com/adaio/pubsub) and [ada-property](http://github.com/adaio/property)
+Objects composed of [ada-pubsub](http://github.com/adaio/pubsub) and [ada-property](http://github.com/adaio/property)
 
 ```js
 var ada = require('ada');
