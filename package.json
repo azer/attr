@@ -7,8 +7,8 @@
     "test": "highkick"
   },
   "dependencies": {
-    "pubsub" : "adaio/pubsub",
-    "prop": "adaio/prop"
+    "ada-pubsub" : "*",
+    "ada-prop": "*"
   },
   "devDependencies": {
     "chai": "*",
