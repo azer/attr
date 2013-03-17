@@ -1,13 +1,13 @@
 {
   "name": "ada",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "Objects that combine adaio/pubsub and adaio/property",
   "main": "index.js",
   "scripts": {
     "test": "highkick"
   },
   "dependencies": {
-    "ada-pubsub" : "*",
+    "ada-pubsub": "*",
     "ada-prop": "*"
   },
   "devDependencies": {
@@ -15,7 +15,7 @@
     "highkick": "*"
   },
   "repository": {
-    "url": "git@github.com:adaio\/ada.git",
+    "url": "git@github.com:adaio/ada.git",
     "type": "git"
   },
   "author": "Azer Koculu <azer@kodfabrik.com>",
