@@ -1,14 +1,12 @@
 var pubsub = require("ada-pubsub"),
     prop   = require("ada-prop");
 
-module.exports          = ada;
-module.exports.all      = props;
-module.exports.object   = props;
-module.exports.prop     = prop;
-module.exports.property = prop;
-module.exports.pubsub   = pubsub;
+module.exports        = attr;
+module.exports.attrs  = attrs;
+module.exports.all    = attrs;
+module.exports.object = attrs;
 
-function ada(){
+function attr(){
   var obj = pubsub(prop.apply(null, arguments).extend(function(raw){
 
     return function(newValue){
@@ -27,7 +25,7 @@ function ada(){
   return obj;
 }
 
-function props(raw, exceptions){
+function attrs(raw, exceptions){
   var obj = {}, key, val;
 
   for(key in raw){
@@ -35,7 +33,7 @@ function props(raw, exceptions){
     obj[key] = ( ! Array.isArray(exceptions) || exceptions.indexOf(key) == -1 )
       && ( typeof val != 'object' || !val || val.constructor != Object )
       && ( typeof val != 'function' )
-      ? ada(val)
+      ? attr(val)
       : val;
   }
 

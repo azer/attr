@@ -1,9 +1,13 @@
 Objects composed of [ada-pubsub](http://github.com/adaio/pubsub) and [ada-property](http://github.com/adaio/property)
 
 ```js
-var ada = require('ada');
+var attr = require('attr');
 
-var message = ada('Hello World');
+var message = attr('Hello World')
+  .getter(function(msg){
+    return msg += '<h1>' + msg + '</h1>'
+  })
+
 message()
 // => Hello World
 
@@ -20,27 +24,29 @@ message()
 ## Install
 
 ```bash
-$ npm install ada # component install adaio/ada
+$ npm install attr
 ```
 
 ## API
 
-### ada()
+### attr()
 
-Creates and returns a new Ada object.
+Creates and returns a new attr.
 
 ```js
-var message = ada('Hello World');
+var message = attr('Hello World');
 message()
 // => Hello World
 ```
 
-### all(object)
+### attrs(object)
 
-Converts the attributes of given object to Ada objects.
+Converts the content of given object to attributes.
 
 ```js
-var content = ada.all({
+var attrs = require('attr').atttrs;
+
+var content = attrs({
   foo: 3.14,
   bar: 159
 })
@@ -56,9 +62,13 @@ content.bar.subscribe(function(update, old){
 content.bar(265)
 ```
 
+### all(object)
+
+Alias for `attrs`
+
 ### object(object)
 
-Alias for `all`
+Alias for `attrs`
 
 ### #getter(function)
 

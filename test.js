@@ -1,8 +1,9 @@
-var ada    = require("./");
+var attr  = require("./"),
+    attrs = attr.attrs;
 
 it('defines a property with pubsub', function(done){
 
-  var foo = ada(3.14);
+  var foo = attr(3.14);
 
   expect(foo()).to.equal(3.14);
 
@@ -25,7 +26,7 @@ it('defines a property with pubsub', function(done){
 
 it('keeps property accessors', function(){
 
-  var foo = ada()
+  var foo = attr()
         .getter(function(val){
           return val + '.00$';
         })
@@ -38,13 +39,13 @@ it('keeps property accessors', function(){
   expect(foo()).to.equal('256.00$');
 });
 
-describe('.all', function(){
+describe('attrs', function(){
 
-  it('converts the content of given object to ada properties', function(){
+  it('converts the content of given object to attr properties', function(){
 
     var d = new Date;
 
-    var foo = ada.all({
+    var foo = attrs({
       n: 3.14,
       s: 'hello',
       f: function(){ return 'f'; },

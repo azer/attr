@@ -1,21 +1,20 @@
 {
-  "name": "ada",
-  "version": "0.0.12",
-  "description": "Objects that combine adaio/pubsub and adaio/property",
+  "name": "attr",
+  "version": "0.0.0",
+  "description": "Attributes with pubsub",
   "main": "index.js",
   "scripts": {
-    "test": "highkick"
+    "test": "fox"
   },
   "dependencies": {
     "ada-pubsub": "*",
     "ada-prop": "*"
   },
   "devDependencies": {
-    "chai": "*",
-    "highkick": "*"
+    "fox": "*"
   },
   "repository": {
-    "url": "git@github.com:adaio/ada.git",
+    "url": "git@github.com:adaio/attr.git",
     "type": "git"
   },
   "author": "Azer Koculu <azer@kodfabrik.com>",
