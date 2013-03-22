@@ -1,4 +1,4 @@
-Objects composed of [ada-pubsub](http://github.com/adaio/pubsub) and [ada-property](http://github.com/adaio/property)
+Minimalistic, Observable attributes.
 
 ```js
 var attr = require('attr');
