@@ -1,9 +1,7 @@
 Minimalistic, Observable attributes.
 
 ```js
-var attr = require('attr');
-
-var message = attr('Hello World')
+message = attr('Hello World')
   .getter(function(msg){
     return msg += '<h1>' + msg + '</h1>'
   })
