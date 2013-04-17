@@ -1,20 +1,20 @@
 {
   "name": "attr",
   "version": "0.0.0",
-  "description": "Attributes with pubsub",
+  "description": "Properties with PubSub",
   "main": "index.js",
   "scripts": {
     "test": "fox"
   },
   "dependencies": {
-    "ada-pubsub": "*",
-    "ada-prop": "*"
+    "new-pubsub": "*",
+    "new-prop": "*"
   },
   "devDependencies": {
     "fox": "*"
   },
   "repository": {
-    "url": "git@github.com:adaio/attr.git",
+    "url": "git@github.com:azer/attr.git",
     "type": "git"
   },
   "author": "Azer Koculu <azer@kodfabrik.com>",
