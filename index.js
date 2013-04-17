@@ -1,5 +1,5 @@
-var pubsub = require("ada-pubsub"),
-    prop   = require("ada-prop");
+var pubsub = require("new-pubsub"),
+    prop   = require("new-prop");
 
 module.exports        = attr;
 module.exports.attrs  = attrs;
