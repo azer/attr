@@ -1,4 +1,4 @@
-Minimalistic, Observable attributes.
+Minimalistic, Observable attributes. See Also: [attrs](https://github.com/azer/attrs)
 
 ```js
 message = attr('Hello World')
