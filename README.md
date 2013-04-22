@@ -83,3 +83,5 @@ Subscribes the given function to changes.
 ### #unsubscribe(callback)
 
 Unsubscribes the given function from changes.
+
+![](https://dl.dropboxusercontent.com/s/ylywhgm4lcbh3tz/npmel_11.jpg)
