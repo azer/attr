@@ -2,9 +2,6 @@ Minimalistic, Observable attributes. See Also: [attrs](https://github.com/azer/a
 
 ```js
 message = attr('Hello World')
-  .getter(function(msg){
-    return msg += '<h1>' + msg + '</h1>'
-  })
 
 message()
 // => Hello World
