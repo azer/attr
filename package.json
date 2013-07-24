@@ -7,8 +7,8 @@
     "test": "fox"
   },
   "dependencies": {
-    "new-pubsub": "*",
-    "new-prop": "*"
+    "pubsub": "*",
+    "property": "*"
   },
   "devDependencies": {
     "fox": "*"

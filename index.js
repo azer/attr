@@ -1,5 +1,5 @@
-var pubsub = require("new-pubsub"),
-    prop   = require("new-prop");
+var pubsub = require("pubsub"),
+    prop   = require("property");
 
 module.exports        = attr;
 module.exports.attrs  = attrs;
