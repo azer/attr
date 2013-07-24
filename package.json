@@ -1,6 +1,6 @@
 {
   "name": "attr",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Properties with PubSub",
   "main": "index.js",
   "scripts": {
