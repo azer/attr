@@ -1,3 +1,5 @@
+## attr [![Build Status](https://travis-ci.org/azer/attr.png)](https://travis-ci.org/azer/attr)
+
 Minimalistic, Observable attributes. See Also: [attrs](https://github.com/azer/attrs)
 
 ```js
