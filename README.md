@@ -1,6 +1,5 @@
 ## attr [![Build Status](https://travis-ci.org/azer/attr.png)](https://travis-ci.org/azer/attr)
-
-Minimalistic, Observable attributes. See Also: [attrs](https://github.com/azer/attrs)
+Define values that you can subscribe for changes. Based on [pubsub](http://github.com/azer/pubsub)
 
 ```js
 message = attr('Hello World')
@@ -8,7 +7,7 @@ message = attr('Hello World')
 message()
 // => Hello World
 
-message.subscribe(function(update, old){
+message.subscribe(function (update, old) {
   console.log(update, old)
   // => 你好, Hello World
 })
@@ -31,56 +30,44 @@ $ npm install attr
 Creates and returns a new attr.
 
 ```js
-var message = attr('Hello World');
+message = attr('Hello World')
 message()
 // => Hello World
 ```
 
-### attrs(object)
-
-Converts the content of given object to attributes.
+To get the value of an attr, call it with no parameters:
 
 ```js
-var attrs = require('attr').atttrs;
-
-var content = attrs({
-  foo: 3.14,
-  bar: 159
-})
-
-content.foo()
-// => 3.14
-
-content.bar.subscribe(function(update, old){
-  console.log(update, old)
-  // => 265, 156
-});
-
-content.bar(265)
+message()
+// => Hello World
 ```
 
-### all(object)
+To change the value of an attr, call the attr with new value:
 
-Alias for `attrs`
+```js
+message('Foo Bar')
 
-### object(object)
+message()
+// => Foo Bar
+```
 
-Alias for `attrs`
-
-### #getter(function)
-
-Sets the `getter`
-
-### #setter(function)
-
-Sets the `setter`
-
-### #subscribe(callback)
+### #subscribe(`function`)
 
 Subscribes the given function to changes.
 
-### #unsubscribe(callback)
+```js
+message.subscribe(function () {
 
-Unsubscribes the given function from changes.
+  message()
+  // => Lorem Ipsum
 
-![](https://dl.dropboxusercontent.com/s/ylywhgm4lcbh3tz/npmel_11.jpg)
+})
+
+message('Lorem Ipsum')
+```
+
+### #subscribe.once(`function`)
+
+### #unsubscribe(`function`)
+
+### #unsubscribe.once(`function`)

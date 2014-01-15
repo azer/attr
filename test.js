@@ -1,65 +1,48 @@
-var attr  = require("./"),
-    attrs = attr.attrs;
+var attr  = require("./");
 
-it('defines a property with pubsub', function(done){
+describe('attr', function(){
 
-  var foo = attr(3.14);
-
-  expect(foo()).to.equal(3.14);
-
-  foo.subscribe(function(val, old){
-    expect(foo()).to.equal(156);
-    done();
+  it('returns a new empty attr', function(){
+    var foo = attr();
+    expect(foo()).to.not.exist;
   });
 
+  it('returns a new attr with given value', function(){
+    var foo = attr(3.14);
+    expect(foo()).to.equal(3.14);
+  });
 
-  function unsubscribed(){
-    done(new Error('unsubscribed callback get called'));
-  }
+  it('sets the value when it s called with a parameter', function(){
+    var foo = attr(3.14);
+    foo(156);
+    expect(foo()).to.equal(156);
+  });
 
-  foo.subscribe(unsubscribed);
-  foo.unsubscribe(unsubscribed);
+  it('publishes an update when it s changed', function(done){
+    var foo = attr(600);
 
-  foo(156);
-
-});
-
-it('keeps property accessors', function(){
-
-  var foo = attr()
-        .getter(function(val){
-          return val + '.00$';
-        })
-        .setter(function(val){
-          return parseInt(val);
-        });
-
-  foo('256$');
-
-  expect(foo()).to.equal('256.00$');
-});
-
-describe('attrs', function(){
-
-  it('converts the content of given object to attr properties', function(){
-
-    var d = new Date;
-
-    var foo = attrs({
-      n: 3.14,
-      s: 'hello',
-      f: function(){ return 'f'; },
-      b: true,
-      u: undefined,
-      d: d
+    foo.subscribe(function () {
+      expect(foo()).to.equal(700);
+      done();
     });
 
-    expect(foo.n()).to.equal(3.14);
-    expect(foo.s()).to.equal('hello');
-    expect(foo.f()).to.equal('f');
-    expect(foo.b()).to.be.true;
-    expect(foo.u()).to.not.exist;
-    expect(foo.d()).to.equal(d);
+    foo(700);
+  });
+
+  it('doesnt publish to unsubscribed callbacks', function(done){
+    var foo = attr(600);
+
+    foo.subscribe(fail);
+    foo.unsubscribe(fail);
+    foo.subscribe(function () {
+      return done();
+    });
+
+    foo(700);
+
+    function fail () {
+      return done(new Error('Unsubscription failed'));
+    }
 
   });
 

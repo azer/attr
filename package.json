@@ -1,17 +1,16 @@
 {
   "name": "attr",
-  "version": "0.0.2",
-  "description": "Properties with PubSub",
+  "version": "1.0.0",
+  "description": "Define values that you can subscribe for changes",
   "main": "index.js",
   "scripts": {
-    "test": "fox"
+    "test": "prova"
   },
   "dependencies": {
-    "pubsub": "*",
-    "property": "*"
+    "pubsub": "1.x"
   },
   "devDependencies": {
-    "fox": "*"
+    "prova": "*"
   },
   "repository": {
     "url": "git@github.com:azer/attr.git",
