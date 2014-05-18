@@ -1,49 +1,49 @@
+var test = require('prova');
 var attr  = require("./");
 
-describe('attr', function(){
+test('returns a new empty attr', function (t) {
+  t.plan(1);
+  var foo = attr();
+  t.notOk(foo());
+});
 
-  it('returns a new empty attr', function(){
-    var foo = attr();
-    expect(foo()).to.not.exist;
+test('returns a new attr with given value', function (t) {
+  t.plan(1);
+  var foo = attr(3.14);
+  t.equal(foo(), 3.14);
+});
+
+test('sets the value when it s called with a parameter', function (t) {
+  t.plan(1);
+
+  var foo = attr(3.14);
+  foo(156);
+  t.equal(foo(), 156);
+});
+
+test('publishes an update when it s changed', function (t) {
+  var foo = attr(600);
+
+  foo.subscribe(function () {
+    t.equal(foo(), 700);
+    t.end();
   });
 
-  it('returns a new attr with given value', function(){
-    var foo = attr(3.14);
-    expect(foo()).to.equal(3.14);
+  foo(700);
+});
+
+test('doesnt publish to unsubscribed callbacks', function (t) {
+  var foo = attr(600);
+
+  foo.subscribe(fail);
+  foo.unsubscribe(fail);
+  foo.subscribe(function () {
+    return t.end();
   });
 
-  it('sets the value when it s called with a parameter', function(){
-    var foo = attr(3.14);
-    foo(156);
-    expect(foo()).to.equal(156);
-  });
+  foo(700);
 
-  it('publishes an update when it s changed', function(done){
-    var foo = attr(600);
-
-    foo.subscribe(function () {
-      expect(foo()).to.equal(700);
-      done();
-    });
-
-    foo(700);
-  });
-
-  it('doesnt publish to unsubscribed callbacks', function(done){
-    var foo = attr(600);
-
-    foo.subscribe(fail);
-    foo.unsubscribe(fail);
-    foo.subscribe(function () {
-      return done();
-    });
-
-    foo(700);
-
-    function fail () {
-      return done(new Error('Unsubscription failed'));
-    }
-
-  });
-
+  function fail () {
+    t.error(new Error('Unsubscription failed'));
+  }
 });
